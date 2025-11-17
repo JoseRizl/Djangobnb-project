@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
-import SearchFilters from "./components/navbar/SearchFilters";
+import Modal from "./components/modals/Modal";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,6 +16,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const content = () => {
+    return (
+      <p>Yo yo</p>
+    )
+  }
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -24,6 +29,11 @@ export default function RootLayout({
         <div className="pt-32">
           {children}
         </div>
+        {/* <Modal 
+          label='Test Modal'
+          content={content()}
+          isOpen={false}
+        /> */}
         </body>
     </html>
   );

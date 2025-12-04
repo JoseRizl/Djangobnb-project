@@ -14,7 +14,7 @@ import { getUserId } from "@/app/lib/actions";
             <div className="w-full h-[64vh] mb-4 overflow-hidden rounded-xl relative">
                 <Image
                     fill
-                    src='/beach_1.jpg'
+                    src={property.image_url}
                     className="object-cover w-full h-full"
                     alt="Beach house"
                 />

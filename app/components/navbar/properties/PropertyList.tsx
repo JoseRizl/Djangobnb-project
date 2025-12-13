@@ -1,6 +1,7 @@
 'use client'
 
 import format from "date-fns/format";
+import { useSearchParams } from "next/navigation";
 import { use, useEffect, useState } from "react";
 import PropertyListItem from "./PropertyListItem";
 import apiService from "@/app/services/apiService";
@@ -24,6 +25,7 @@ const PropertyList: React.FC<PropertyListProps> = ({
     landlord_id,
     favorites
 }) => {
+    const params = useSearchParams();
     const searchModal = useSearchModal();
     const country = searchModal.query.country;
     const numGuests = searchModal.query.guests;
@@ -114,9 +116,8 @@ const PropertyList: React.FC<PropertyListProps> = ({
     };
 
     useEffect(() => {
-        apiService.get('/api/properties')
         getProperties();
-    }, [category, searchModal.query]);
+    }, [category, searchModal.query, params]);
 
     return (
         <>
